@@ -38,4 +38,30 @@ class ArticleController extends Controller
 	    }
 	}
 
+	public function edit($id)  
+	{
+    	return view('admin/article/edit')->withArticle(Article::find($id));
+	}
+
+	public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required|unique:articles,title,'.$id.'|max:255',
+            'body' => 'required', 
+        ]);
+        $article = Article::find($id);
+        $article->title = $request->get('title');
+        $article->body = $request->get('body');
+        if ($article->save()) {
+            return redirect('admin/article');
+        } else {
+            return redirect()->back()->withInput()->withErrors('更新失败！');
+        }
+    }
+
+    public function destroy($id)  
+	{
+    	Article::find($id)->delete();
+    	return redirect()->back()->withInput()->withErrors('删除成功！');
+	}
 }
