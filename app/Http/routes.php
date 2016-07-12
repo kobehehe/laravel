@@ -18,8 +18,11 @@
 Route::auth();
 
 Route::get('/', 'HomeController@index');
+Route::get('article/{id}', 'ArticleController@show');
+Route::post('comment', 'CommentController@store');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {  
     Route::get('/', 'HomeController@index');
     Route::resource('article', 'ArticleController');
+    Route::resource('comment', 'commentController');
 });
