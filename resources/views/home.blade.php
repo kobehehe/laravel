@@ -39,10 +39,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="header">
 		<div class="header-top">
 			<div class="container">
-			<p class="header-para">Free Shipping on orders over $50 USD</p>
+			<p class="header-para"></p>
 			
 				<ul class="sign">
-					<li ><a href="signin.html" >SIGN IN</a></li>
+					<li ><a href="login" >登录</a></li>
 					<li><a href="#" ><span > </span></a></li>			
 				</ul>
 			</div>

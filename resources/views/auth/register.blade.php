@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
+@section('head')
+        <!--content-->
+    <div class="container">
+        <div class="register">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -73,10 +70,13 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </form>  
+            <div class="clearfix"> </div>
 </div>
+</div>  
+        <!--content-->
+    <!--footer-->
+
+</body>
+</html>
 @endsection

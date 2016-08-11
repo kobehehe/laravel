@@ -1,49 +1,46 @@
 <!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <link href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-</head>  
-<body id="app-layout">  
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
+<html>
+<head>
+<title>Football Bootstarp Website Template | Home :: w3layouts</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />  
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Passion+One:400,700,900' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+ <script src="js/responsiveslides.min.js"></script>
+ <script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+      $("#slider2").responsiveSlides({
+        auto: true,
+        pager: true,
+        speed: 300,
+        namespace: "callbacks",
+      });
+    });
+  </script>
+</head>
+<body> 
+<!--header-->
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+            <p class="header-para">最专业的约比赛平台</p>
+                <ul class="sign">
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li ><a href="login" >登陆</a></li>
+                    <li ><a href="register" >注册</a></li>
+                    <li><a href="#" ><span > </span></a></li>
                     @else
-                        <li class="dropdown">
+                    <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
@@ -51,14 +48,69 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
-                        </li>
-                    @endif
+                    </li>
+                    @endif           
                 </ul>
             </div>
+            <div class="clearfix"> </div>
+    </div>
+    <div class="header-bottom-top">
+        <div class="container">
+            <div class="search">    
+                <input type="text" value="Search website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+                <input type="submit"  value=""> 
+            </div>
+            <div class="clearfix"> </div>
+            <div class="header-bottom">         
+                <div class="logo">
+                    <a href="index.html"><img src="images/log.png" alt=" " /></a>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li class="active" ><a href="index.html" class="scroll">首页</a></li>
+                        <li><a href="about.html" class="scroll"> About</a></li>
+                        <li><a href="teams.html" class="scroll">Team</a></li>                       
+                        <li><a href="services.html" class="scroll">Services</a></li>
+                        <li><a href="sports.html" class="scroll">Sports </a></li>
+                        <li><a href="contact.html" class="scroll">Contact</a></li>
+                    </ul>
+                    <!-- script-nav -->
+                    <!--script-->
+                <script>
+                    $("span.menu").click(function(){
+                        $(".top-nav ul").slideToggle(500, function(){
+                        });
+                    });
+            </script>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
         </div>
-    </nav>
+        </div>
+    </div>
 
-    @yield('content')
+    @yield('head')
+    <div class="footer">
+        <div class="container">
+        
+            <div class="foter-bottom">          
+                 <p class="footer-grid">Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                <div class=" nav-top">              
+                    <ul>
+                        <li class="active" ><a href="index.html" class="scroll">Home</a></li>
+                        <li><a href="about.html" class="scroll"> About</a></li>
+                        <li><a href="teams.html" class="scroll">Team</a></li>                   
+                        <li><a href="services.html" class="scroll">Services</a></li>
+                        <li><a href="sports.html" class="scroll">Sports </a></li>
+                        <li><a href="contact.html" class="scroll">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+     
 
 </body>  
 </html>  
