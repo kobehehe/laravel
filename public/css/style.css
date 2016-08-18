@@ -714,7 +714,7 @@ color: #FFF;
 text-transform: uppercase;
 padding: 0.875em 0em;
 width: 15%;
-display: block;
+display: inline-block;
 margin: 0 auto;
 text-align: center;
 }

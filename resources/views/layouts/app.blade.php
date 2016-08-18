@@ -2,12 +2,12 @@
 <html>
 <head>
 <title>Football Bootstarp Website Template | Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />  
+<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />  
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -15,7 +15,7 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Passion+One:400,700,900' rel='stylesheet' type='text/css'>
 <!--//fonts-->
- <script src="js/responsiveslides.min.js"></script>
+ <script src="{{asset('js/responsiveslides.min.js')}}"></script>
  <script>
     // You can also use "$(window).load(function() {"
     $(function () {
@@ -33,7 +33,7 @@
     <div class="header">
         <div class="header-top">
             <div class="container">
-            <p class="header-para">最专业的约比赛平台</p>
+            <p class="header-para">最专业的民间篮球赛事平台</p>
                 <ul class="sign">
                     @if (Auth::guest())
                     <li ><a href="login" >登陆</a></li>
@@ -63,14 +63,14 @@
             <div class="clearfix"> </div>
             <div class="header-bottom">         
                 <div class="logo">
-                    <a href="index.html"><img src="images/log.png" alt=" " /></a>
+                    <a href="index.html"><img src="{{asset('images/log.png')}}" alt=" " /></a>
                 </div>
                 <div class="top-nav">
                     <span class="menu"> </span>
                     <ul>
-                        <li class="active" ><a href="index.html" class="scroll">首页</a></li>
-                        <li><a href="about.html" class="scroll"> About</a></li>
-                        <li><a href="teams.html" class="scroll">Team</a></li>                       
+                        <li class="active" ><a href="/" class="scroll">首页</a></li>
+                        <li><a href="{{asset('team')}}" class="scroll">球队</a></li>
+                        <li><a href="teams.html" class="scroll">比赛</a></li>                       
                         <li><a href="services.html" class="scroll">Services</a></li>
                         <li><a href="sports.html" class="scroll">Sports </a></li>
                         <li><a href="contact.html" class="scroll">Contact</a></li>
