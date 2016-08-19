@@ -4,7 +4,7 @@
         <!--content-->
     <div class="container">
         <div class="register">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('team') }}">
+                    <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="{{ url('team') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -53,7 +53,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">上传球队logo</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="file" class="form-control" name="team_logo">
+                                <input id="password-confirm" type="file" name="team_logo">
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
