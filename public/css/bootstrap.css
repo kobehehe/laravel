@@ -2086,6 +2086,19 @@ fieldset[disabled] .btn-default.active {
   margin-left:230px;
   margin-top: 20px;
 }
+.btn-primary-qu {
+  color: #fff;
+  background-color: #1B242F;
+  border-color: #1B242F;
+  margin-left:0px;
+  margin-top: 20px;
+}
+.btn-primary-qu:hover{
+color:#fff;
+}
+
+
+.btn-prmary-qu:hover,
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,

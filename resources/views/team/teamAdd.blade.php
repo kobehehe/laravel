@@ -69,6 +69,11 @@
                                     <i class="fa fa-btn fa-user"></i> 保存
                                 </button>
                             </div>
+			   <div class="col-md-6 col-md-offset-4">
+                                <div  class="btn btn-primary-qu">
+                                    <i class="fa fa-btn fa-user"></i> <a style="color:white" href="{{ url('/') }}">取消</a>
+                                </div>
+                            </div>
                         </div>
                     </form>  
             <div class="clearfix"> </div>
