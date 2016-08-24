@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Http\Requests;
 use App\Team;
-use App\Http\Requests\StoreBlogPostRequest; 
+use App\Http\Requests\StoreBlogPostRequest;
 class TeamController extends Controller
 {
     public function index()  
@@ -19,15 +19,8 @@ class TeamController extends Controller
 	}
 	
     public function store(StoreBlogPostRequest $request)  
-	{
-	    if($request->hasFile('team_logo')){
-		if($request->file('team_logo')->isValid()){	
-		  $file = $request->file('team_logo');
-		  $destinationPath = 'upload/teamlogo';
-		  $fileName = $file->getClientOriginalName();		
-		  $request->file('team_logo')->move($destinationPath,$fileName);
-		}
-	    }
+	{   $destinationPath = 'upload/teamlogo';	
+	    $fileName = upload($request,$destinationPath);	
 	    $team = new Team;
 	    $team->team_name = $request->get('team_name');
 	    $team->team_number = $request->get('team_number');

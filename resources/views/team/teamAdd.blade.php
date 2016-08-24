@@ -53,7 +53,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">上传球队logo</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="file" name="team_logo">
+                                <input id="password-confirm" type="file" name="upload">
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
