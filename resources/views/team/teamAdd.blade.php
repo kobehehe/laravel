@@ -48,6 +48,17 @@
                                 @endif
                             </div>
                         </div>
+			<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">球队类型</label>
+
+                            <div class="col-md-6">
+				<select name="team_type">
+					<option value="1">企业球队</option>
+					<option value="2">学校球队</option>
+					<option value="3">社会球队</option>
+				</select>
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">上传球队logo</label>

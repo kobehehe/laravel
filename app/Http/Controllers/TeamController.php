@@ -24,15 +24,18 @@ class TeamController extends Controller
 		return view('team/teamAdd');
 	}
 	
-    public function store(StoreBlogPostRequest $request)  
-	{   $destinationPath = 'upload/teamlogo';	
-	    $fileName = upload($request,$destinationPath);	
+    public function store(StoreBlogPostRequest $request){  
 	    $team = new Team;
 	    $team->team_name = $request->get('team_name');
 	    $team->team_number = $request->get('team_number');
 	    $team->team_captain_name = $request->get('team_captain_name');
 	    $team->create_time = time();
-	    $team->team_logo = $destinationPath.'/'.$fileName;		
+	    $team->team_type = $request->get('team_type');
+	    if($request->file('upload')){
+		$destinationPath = 'upload/teamlogo';	
+	    	$fileName = upload($request,$destinationPath);	
+	    	$team->team_logo = $destinationPath.'/'.$fileName;
+	    }	
 	    if ($team->save()) {
 	        return redirect('team');
 	    } else {
