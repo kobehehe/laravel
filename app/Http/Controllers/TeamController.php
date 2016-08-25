@@ -9,10 +9,6 @@ use App\Team;
 use App\Http\Requests\StoreBlogPostRequest;
 class TeamController extends Controller
 {  
-    public function __construct()
-     {
-         $this->middleware('auth');
-     }
 
     public function index()  
 	{	
@@ -20,7 +16,6 @@ class TeamController extends Controller
 	}
 
     public function create(){
-	
 		return view('team/teamAdd');
 	}
 	
