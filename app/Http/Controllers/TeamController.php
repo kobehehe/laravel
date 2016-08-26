@@ -10,9 +10,15 @@ use App\Http\Requests\StoreBlogPostRequest;
 class TeamController extends Controller
 {  
 
-    public function index()  
-	{	
-    	return view('team/index');
+    public function index()  {	
+	$companyTeam = Team::where('id', '>', 10)->where('team_type', '=', COMPANY_TYPE)->get();
+	$schoolTeam = Team::where('id','>', 10)->where('team_type', '=', SCHOOL_TYPE)->get();
+	$societyTeam = Team::where('id','>',10)->where('team_type', '=', SOCIETY_TYPE)->get();
+    	return view('team/index',[
+		'companyTeam' => $companyTeam,
+		'schoolTeam' => $schoolTeam,
+		'societyTeam' => $societyTeam
+	]);
 	}
 
     public function create(){
