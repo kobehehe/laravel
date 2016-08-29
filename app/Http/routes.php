@@ -20,7 +20,11 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 Route::get('article/{id}', 'ArticleController@show');
 Route::post('comment', 'CommentController@store');
+Route::get('team/teamDetail/{id}','TeamController@teamDetail');
+
+
 Route::resource('team','TeamController');
+Route::resource('applyMessage','applyMessageController');
 Route::get('team/create', ['middleware' => 'auth', function () {
 		return view('team/teamAdd');
 }]);

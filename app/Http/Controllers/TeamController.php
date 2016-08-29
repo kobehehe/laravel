@@ -11,13 +11,13 @@ class TeamController extends Controller
 {  
 
     public function index()  {	
-	$companyTeam = Team::where('id', '>', 10)->where('team_type', '=', COMPANY_TYPE)->get();
-	$schoolTeam = Team::where('id','>', 10)->where('team_type', '=', SCHOOL_TYPE)->get();
-	$societyTeam = Team::where('id','>',10)->where('team_type', '=', SOCIETY_TYPE)->get();
+	$companyTeams = Team::where('id', '<', 20)->where('team_type', '=', COMPANY_TYPE)->get();
+	$schoolTeams = Team::where('id','<', 20)->where('team_type', '=', SCHOOL_TYPE)->get();
+	$societyTeams = Team::where('id','<',20)->where('team_type', '=', SOCIETY_TYPE)->get();
     	return view('team/index',[
-		'companyTeam' => $companyTeam,
-		'schoolTeam' => $schoolTeam,
-		'societyTeam' => $societyTeam
+		'companyTeams' => $companyTeams,
+		'schoolTeams' => $schoolTeams,
+		'societyTeams' => $societyTeams
 	]);
 	}
 
@@ -25,13 +25,14 @@ class TeamController extends Controller
 		return view('team/teamAdd');
 	}
 	
-    public function store(StoreBlogPostRequest $request){  
+    public function store(StoreBlogPostRequest $request){ 
 	    $team = new Team;
 	    $team->team_name = $request->get('team_name');
 	    $team->team_number = $request->get('team_number');
 	    $team->team_captain_name = $request->get('team_captain_name');
 	    $team->create_time = time();
 	    $team->team_type = $request->get('team_type');
+	    $team->team_description = $request->get('team_description');
 	    if($request->file('upload')){
 		$destinationPath = 'upload/teamlogo';	
 	    	$fileName = upload($request,$destinationPath);	
@@ -43,5 +44,10 @@ class TeamController extends Controller
 	        return redirect()->back()->withInput()->withErrors('保存失败！');
 	    }
 	}
+	public function teamDetail($id){
+		return view('team/teamDetail')->withTeam(Team::find($id));
+	}
+	
+	
 	
 }
