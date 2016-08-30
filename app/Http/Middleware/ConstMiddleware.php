@@ -15,8 +15,8 @@ class ConstMiddleware
      */
     public function handle($request, Closure $next)
     {	define('COMPANY_TYPE','1');
-	define('SCHOOL_TYPE','2');
-	define('SOCIETY_TYPE','3');
+	    define('SCHOOL_TYPE','2');
+	    define('SOCIETY_TYPE','3');
         return $next($request);
     }
 }

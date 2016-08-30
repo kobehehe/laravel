@@ -33,7 +33,6 @@ class StoreApplyMessageRequest extends Request
     	return [
             'player_name.required' => '队员名字必填',
             'player_age.required' => '队员年龄必填',
-
     	];
     }	
 }

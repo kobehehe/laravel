@@ -62,10 +62,10 @@
 			<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">球队简介</label>
                             <div class="col-md-6">
-				<textarea name="team_description" autofocus>
-				</textarea>
+				                <textarea name="team_description" autofocus>
+				                </textarea>
                             </div>
-                        </div>
+            </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">上传球队logo</label>
