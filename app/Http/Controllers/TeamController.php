@@ -7,13 +7,39 @@ use Validator;
 use App\Http\Requests;
 use App\Team;
 use App\Http\Requests\StoreBlogPostRequest;
+use Redis;
 class TeamController extends Controller
 {  
 
     public function index()  {	
-	$companyTeams = Team::where('id', '<', 20)->where('team_type', '=', COMPANY_TYPE)->get();
-	$schoolTeams = Team::where('id','<', 20)->where('team_type', '=', SCHOOL_TYPE)->get();
-	$societyTeams = Team::where('id','<',20)->where('team_type', '=', SOCIETY_TYPE)->get();
+		if(Redis::get('companyTeams')){
+			$companyTeams = unserialize(Redis::get('companyTeams'));
+		}else{
+			$companyTeams = Team::where('id', '<', 20)->where('team_type', '=', COMPANY_TYPE)->get();
+			$companyTeamsEnd = serialize($companyTeams);
+			Redis::set('companyTeams',$companyTeamsEnd);
+			Redis::expire('companyTeams',REDIS_OVER_TIME);
+		}
+
+		if(Redis::get('schoolTeams')){
+			$schoolTeams = unserialize(Redis::get('schoolTeams'));
+		}else{
+			$schoolTeams = Team::where('id','<', 20)->where('team_type', '=', SCHOOL_TYPE)->get();
+			$schoolTeamsEnd = serialize($schoolTeams);
+			Redis::set('schoolTeams',$schoolTeamsEnd);
+			Redis::expire('schoolTeams',REDIS_OVER_TIME);
+		}
+
+		if(Redis::get('societyTeams')){
+			$societyTeams = unserialize(Redis::get('societyTeams'));
+		}else{	
+			$societyTeams = Team::where('id','<',20)->where('team_type', '=', SOCIETY_TYPE)->get();
+			$societyTeamsEnd = serialize($societyTeams);
+			Redis::set('societyTeams',$societyTeamsEnd);
+			Redis::expire('societyTeams',REDIS_OVER_TIME);
+		}
+
+
     	return view('team/index',[
 		'companyTeams' => $companyTeams,
 		'schoolTeams' => $schoolTeams,
