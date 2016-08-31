@@ -27,9 +27,6 @@ class StoreBlogPostRequest extends Request
         'team_name' => 'required|unique:teams|max:255',
 	    'team_captain_name' => 'required',
 	    'team_number' => 'required',
-
-        'player_name' => 'required',
-        'player_age' => 'required',
         ];
     }
     public function messages()
@@ -39,8 +36,6 @@ class StoreBlogPostRequest extends Request
         	'team_captain_name.required'  => '消息是必填的',
 		    'team_number.required'=>'队员数量必填',
 		    'team_name.unique' => '这个队名已经存在,请换一个吧',
-            'player_name.required' => '队员名字必填',
-            'player_age.required' => '队员年龄必填',
 
     	];
     }	

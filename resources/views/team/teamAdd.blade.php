@@ -39,7 +39,7 @@
                             <label for="password" class="col-md-4 control-label">队员数量</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="text" class="form-control" name="team_number">
+                                <input id="password" type="text" class="form-control" name="team_number" value="{{ old('team_number') }}">
 
                                 @if ($errors->has('team_number'))
                                     <span class="help-block">

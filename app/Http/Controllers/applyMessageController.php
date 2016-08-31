@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\StoreApplyMessageRequest;
 use App\applyMessage;
+use Redis;
 class applyMessageController extends Controller
 {
    public function show($id)  {	
@@ -25,6 +26,9 @@ class applyMessageController extends Controller
 	    $applyMessage->user_id = $request->user()->id;
 	    $applyMessage->apply_time = time();
 	    if ($applyMessage->save()) {
+	    	Redis::del('companyTeams');
+	    	Redis::del('schoolTeams');
+	    	Redis::del('societyTeams');
 	        return redirect('team/teamDetail/'.$applyMessage->team_id);
 	    } else {
 	        return redirect()->back()->withInput()->withErrors('保存失败！');

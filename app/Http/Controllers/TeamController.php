@@ -41,10 +41,10 @@ class TeamController extends Controller
 
 
     	return view('team/index',[
-		'companyTeams' => $companyTeams,
-		'schoolTeams' => $schoolTeams,
-		'societyTeams' => $societyTeams
-	]);
+			'companyTeams' => $companyTeams,
+			'schoolTeams' => $schoolTeams,
+			'societyTeams' => $societyTeams
+		]);
 	}
 
     public function create(){
